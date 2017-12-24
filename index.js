@@ -2,16 +2,59 @@ require('dotenv').config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const Pusher = require('pusher')
 const app = express()
-app.use(bodyParser.json())
+
+var pusher = new Pusher({
+  appId: process.env['PUSHER_APP_ID'],
+  key: process.env['PUSHER_KEY'],
+  secret: process.env['PUSHER_SECRET'],
+  cluster: process.env['PUSHER_CLUSTER'],
+  encrypted: true
+});
+
+
+app.use(bodyParser.json({
+    'strict': false
+}))
 
 app.post('/', (request, response) => {
 
-    console.log('req', request.body);
-    response.send('Hello World!')
+    console.log(`Pusher reuqest: ${request.body}`)
+
+    try {
+
+        pusher.trigger(
+            request.body.channel,
+            request.body.event,
+            request.body.message,
+    
+            (error, pusherRequest, pusherResponse) => {
+    
+                response.send(JSON.stringify({
+                    status: 200,
+                    body: request.body
+                }));
+    
+            }
+        );
+
+    } catch (error) {
+
+        response.send(JSON.stringify({
+            status: 400,
+            body: error
+        }));
+
+    }
+
 
 });
 
 app.listen(process.env['PORT'], () => {
+
+    pusher.trigger('status', 'node', 'now online');
+
     console.log(`Express application running on port ${process.env['PORT']}`)
+
 });
