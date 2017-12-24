@@ -18,6 +18,13 @@ app.use(bodyParser.json({
     'strict': false
 }))
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 app.post('/', (request, response) => {
 
     console.log(`Pusher reuqest: ${request.body}`)
@@ -27,7 +34,7 @@ app.post('/', (request, response) => {
         pusher.trigger(
             request.body.channel,
             request.body.event,
-            request.body.message,
+            request.body.data,
     
             (error, pusherRequest, pusherResponse) => {
     
