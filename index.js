@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
@@ -10,6 +12,6 @@ app.post('/', (request, response) => {
 
 });
 
-app.listen(3000, () => {
-    console.log('Express application running on 3000')
+app.listen(process.env['PORT'], () => {
+    console.log(`Express application running on port ${process.env['PORT']}`)
 });
