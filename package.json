@@ -1,7 +1,7 @@
 {
-  "name": "pusher-middleware",
+  "name": "pusher-http-server",
   "version": "1.0.0",
-  "description": "Small Pusher integration",
+  "description": "Small Node server that publishes an endpoint that clients can use to insecurely publish to pusher channels.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,6 +13,6 @@
     "body-parser": "1.18.2",
     "dotenv": "4.0.0",
     "express": "4.16.2",
-    "pusher": "^1.5.1"
+    "pusher": "1.5.1"
   }
 }
