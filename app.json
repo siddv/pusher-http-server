@@ -1,0 +1,28 @@
+{
+  "name": "Pusher HTTP Server",
+  "description": "Small Node server that publishes an endpoint that clients can use to insecurely publish to pusher channels.",
+  "keywords": [
+    "Pusher",
+    "Node"
+  ],
+  "repository": "https://github.com/siddv/pusher-http-server",
+  "env": {
+    "PUSHER_APP_ID": {
+      "description": "Your Pusher App ID"
+    },
+    "PUSHER_KEY": {
+      "description": "Your Pusher App Key"
+    },
+    "PUSHER_SECRET": {
+      "description": "Your Pusher App Secret"
+    }, 
+    "PUSHER_CLUSTER": {
+      "description": "Your Pusher App Cluster",
+      "value": "mt1"
+    },
+    "PORT": {
+      "description": "The port this server should be deployed on",
+      "value": 80
+    } 
+  }
+}
