@@ -16,9 +16,17 @@ PUSHER_CLUSTER  - Your Pusher App Cluster
 PORT            - The port this server should be deployed on
 ```
 
-## How
+## Run
 
-Run this node server using `npm start`, then POST to it in this format: 
+Run this node server using `npm start`, or deploy to Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/siddv/pusher-http-server)
+
+
+
+## Use
+
+POST to it in this format: 
 
 ```json
 {
