@@ -22,7 +22,7 @@
     },
     "PORT": {
       "description": "The port this server should be deployed on",
-      "value": 80
+      "value": "80"
     } 
   }
 }
