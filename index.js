@@ -58,6 +58,10 @@ app.post('/', (request, response) => {
 
 });
 
+app.get('/', (request, response) => {
+    response.send('Hello, you did a GET request. You need to POST to get this API to work. See https://github.com/siddv/pusher-http-server for details');
+});
+
 app.listen(process.env['PORT'], () => {
 
     pusher.trigger('status', 'node', 'now online');
